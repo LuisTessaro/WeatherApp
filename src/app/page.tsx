@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import WeatherCard from "./components/WeatherCard";
 import { useWeatherStore } from "@/app/hooks/weatherStore";
@@ -8,6 +7,7 @@ import { useEffect, useCallback } from "react";
 import fechWeather from "./services/fetchWeather";
 import { TApiError } from "@/app/types/api.type";
 import { errorToast } from "./utils/NotifyErrorToast";
+import Image from "next/image";
 
 const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -63,7 +63,7 @@ const Home = () => {
                     {weekday[new Date(day.date).getDay()]}
                   </p>
 
-                  <img
+                  <Image
                     src={`https:${day.icon}`}
                     width={40}
                     height={40}

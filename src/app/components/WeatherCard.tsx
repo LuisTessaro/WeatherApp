@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import { TWeather } from "@/app/types/weather.type";
 
 type TWeatherCard = {
@@ -16,7 +16,7 @@ const WeatherCard = ({ weatherInfo, unit }: TWeatherCard) => {
       <div className="text-xl text-gray-400 flex sm:flex-row w-full flex-col justify-center text-center">
         <p className="flex sm:w-auto w-full sm:justify-start justify-center">
           <span className="mr-2">{weatherInfo?.condition}</span>
-          <img
+          <Image
             src={`https:${weatherInfo?.icon}`}
             width={25}
             height={25}
