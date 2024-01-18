@@ -4,7 +4,7 @@ import {
   TForecastRequest,
 } from "../types/weather.type";
 
-const fechWeather = async ({ query }: TFetchWeather): Promise<TWeather> => {
+const fetchWeather = async ({ query }: TFetchWeather): Promise<TWeather> => {
   const resp = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?q=${query}&days=6&key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
   );
@@ -37,4 +37,4 @@ const fechWeather = async ({ query }: TFetchWeather): Promise<TWeather> => {
   };
 };
 
-export default fechWeather;
+export default fetchWeather;

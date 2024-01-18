@@ -1,6 +1,6 @@
 "use client";
 import { useWeatherStore } from "../hooks/weatherStore";
-import fechWeather from "../services/fetchWeather";
+import fetchWeather from "../services/fetchWeather";
 import SearchBar from "./SearchBar";
 import UnitySelector from "./UnitySelector";
 import { TApiError } from "@/app/types/api.type";
@@ -19,7 +19,7 @@ const Header = () => {
   const searchFunction = async () => {
     try {
       setFetching(true);
-      const resp = await fechWeather({ query: searchText, unit: unit });
+      const resp = await fetchWeather({ query: searchText });
       setWeatherInfo(resp);
     } catch (err) {
       const { message } = err as TApiError;
@@ -35,10 +35,10 @@ const Header = () => {
         Weather App
       </h1>
       <div className="flex items-center">
-        <div className="relative flex-1 ml-auto sm:flex-initial mr-4">
+        <UnitySelector />
+        <div className="relative flex-1 ml-auto sm:flex-initial ">
           <SearchBar searchFunction={searchFunction} />
         </div>
-        <UnitySelector />
       </div>
     </header>
   );

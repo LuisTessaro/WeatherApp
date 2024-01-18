@@ -1,5 +1,6 @@
 "use client";
 import { useWeatherStore } from "@/app/hooks/weatherStore";
+import clsx from "clsx";
 
 const UnitySelector = () => {
   const { unit, setUnit } = useWeatherStore((state) => ({
@@ -7,18 +8,32 @@ const UnitySelector = () => {
     setUnit: state.setUnit,
   }));
 
+  const handleClick = (unit: "i" | "m") => {
+    setUnit(unit);
+  };
+
   return (
-    <>
-      <select
-        className="bg-gray-700 text-gray-200"
-        name="unit"
-        value={unit}
-        onChange={(event) => setUnit(event.target.value as "i" | "m")}
+    <div className="mr-6 flex gap-2">
+      <p
+        className={clsx(
+          "cursor-pointer",
+          `text-gray-${[500, 200][Number(unit !== "i")]}`
+        )}
+        onClick={() => handleClick("m")}
       >
-        <option value="i">°F</option>
-        <option value="m">°C</option>
-      </select>
-    </>
+        °C
+      </p>
+      <span className="text-gray-400">|</span>
+      <p
+        className={clsx(
+          "cursor-pointer",
+          `text-gray-${[500, 200][Number(unit === "i")]}`
+        )}
+        onClick={() => handleClick("i")}
+      >
+        °F
+      </p>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import { useWeatherStore } from "@/app/hooks/weatherStore";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "./components/Loader";
 import { useEffect, useCallback } from "react";
-import fechWeather from "./services/fetchWeather";
+import fetchWeather from "./services/fetchWeather";
 import { TApiError } from "@/app/types/api.type";
 import { errorToast } from "./utils/NotifyErrorToast";
 import Image from "next/image";
@@ -25,7 +25,7 @@ const Home = () => {
     async (query: string) => {
       try {
         setFetching(true);
-        const resp = await fechWeather({ query: query, unit: unit });
+        const resp = await fetchWeather({ query });
         setWeatherInfo(resp);
       } catch (err) {
         const { message } = err as TApiError;
@@ -34,7 +34,7 @@ const Home = () => {
         setFetching(false);
       }
     },
-    [setFetching, setWeatherInfo, unit]
+    [setFetching, setWeatherInfo]
   );
 
   useEffect(() => {

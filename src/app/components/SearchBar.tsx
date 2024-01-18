@@ -39,7 +39,7 @@ const SearchBar = ({ searchFunction }: { searchFunction: () => void }) => {
     <div className="relative">
       <SearchIcon
         onClick={searchFunction}
-        className="absolute left-2 top-1 h-4 w-4 text-gray-400 cursor-pointer"
+        className="absolute left-3 top-3 h-4 w-4 text-gray-400 cursor-pointer"
       />
       <input
         value={searchText}
@@ -51,7 +51,7 @@ const SearchBar = ({ searchFunction }: { searchFunction: () => void }) => {
           }
         }}
         placeholder="Search cities..."
-        className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] bg-gray-700 text-white placeholder-gray-400"
+        className="sm:w-[300px] md:w-[200px] lg:w-[300px] bg-gray-700 text-white placeholder-gray-400 py-2 pl-10 pr-6 rounded-md"
       />
     </div>
   );
