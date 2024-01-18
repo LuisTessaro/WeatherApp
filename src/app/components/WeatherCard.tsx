@@ -8,8 +8,8 @@ type TWeatherCard = {
 
 const WeatherCard = ({ weatherInfo, unit }: TWeatherCard) => {
   return (
-    <div className="flex flex-col items-center space-y-2">
-      <h2 className="text-4xl font-bold text-gray-200 text-center">
+    <div className="flex flex-col items-center md:mb-12 mb-8">
+      <h2 className="text-4xl font-bold text-gray-200 text-center mb-5">
         {weatherInfo?.location}
       </h2>
 
@@ -18,10 +18,10 @@ const WeatherCard = ({ weatherInfo, unit }: TWeatherCard) => {
           <span className="mr-2">{weatherInfo?.condition}</span>
           <Image
             src={`https:${weatherInfo?.icon}`}
-            width={25}
-            height={25}
+            width={24}
+            height={24}
             alt={`${weatherInfo?.condition} icon`}
-            className="mr-2"
+            className="mr-2 w-6 h-6"
           />
         </p>
         <p className="flex justify-center">
@@ -35,7 +35,7 @@ const WeatherCard = ({ weatherInfo, unit }: TWeatherCard) => {
         </p>
       </div>
 
-      <p className="text-6xl font-bold text-gray-200">
+      <p className="text-6xl font-bold text-gray-200 mt-6">
         {[weatherInfo?.tempF, weatherInfo?.tempC][Number(unit === "m")]}
         {["°F", "°C"][Number(unit === "m")]}
       </p>

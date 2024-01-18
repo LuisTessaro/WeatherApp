@@ -48,16 +48,16 @@ const Home = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-900">
-      <main className="flex flex-1 flex-col items-center justify-center p-6 space-y-4">
+      <main className="flex flex-1 flex-col items-center justify-center p-6 ">
         {fetching && <Loader />}
         {weatherInfo && (
           <>
-            <WeatherCard weatherInfo={weatherInfo} unit={unit} />{" "}
+            <WeatherCard weatherInfo={weatherInfo} unit={unit} />
             <ul className="grid lg:grid-cols-5 md:grid-cols-3 grid-row gap-4 w-full max-w-6xl">
               {weatherInfo.forecastData.map((day) => (
                 <li
                   key={day.date}
-                  className="flex flex-col items-center space-y-2 bg-gray-800 p-4 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 border-opacity-20"
+                  className="flex flex-col items-center bg-gray-800 p-4 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 border-opacity-20"
                 >
                   <p className="text-lg text-gray-200">
                     {weekday[new Date(day.date).getDay()]}

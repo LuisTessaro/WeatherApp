@@ -51,7 +51,7 @@ const SearchBar = ({ searchFunction }: { searchFunction: () => void }) => {
           }
         }}
         placeholder="Search cities..."
-        className="sm:w-[300px] md:w-[200px] lg:w-[300px] bg-gray-700 text-white placeholder-gray-400 py-2 pl-10 pr-6 rounded-md"
+        className="w-full lg:w-[300px] bg-gray-700 text-white placeholder-gray-400 py-2 pl-10 pr-6 rounded-md"
       />
     </div>
   );

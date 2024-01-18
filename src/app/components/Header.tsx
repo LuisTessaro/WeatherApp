@@ -7,9 +7,8 @@ import { TApiError } from "@/app/types/api.type";
 import { errorToast } from "../utils/NotifyErrorToast";
 
 const Header = () => {
-  const { unit, searchText, setWeatherInfo, setFetching } = useWeatherStore(
+  const { searchText, setWeatherInfo, setFetching } = useWeatherStore(
     (state) => ({
-      unit: state.unit,
       searchText: state.searchText,
       setWeatherInfo: state.setWeatherInfo,
       setFetching: state.setFetching,
@@ -30,13 +29,13 @@ const Header = () => {
   };
 
   return (
-    <header className="flex items-center md:flex-row flex-col justify-between px-6 py-4 bg-gray-800">
+    <header className="flex items-center md:flex-row flex-col justify-between px-6 py-4 bg-gray-800 relative">
       <h1 className="text-2xl font-bold text-gray-200 md:mb-0 mb-4">
         Weather App
       </h1>
-      <div className="flex items-center">
+      <div className="flex items-center md:w-max w-full">
         <UnitySelector />
-        <div className="relative flex-1 ml-auto sm:flex-initial ">
+        <div className="relative flex-1 ml-auto sm:flex-initial">
           <SearchBar searchFunction={searchFunction} />
         </div>
       </div>
